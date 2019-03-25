@@ -4,9 +4,10 @@ import { Consumer } from "../../context";
 
 class Contact extends Component {
   state = {
-    showContactInfo: true
+    showContactInfo: false
   };
   onDeleteClick = (id, dispatch) => {
+    console.log(id);
     dispatch({
       type: "DELETE_CONTACT",
       payload: id
@@ -36,7 +37,7 @@ class Contact extends Component {
                 <i
                   className="fas fa-times"
                   style={{ cursor: "pointer", float: "right", color: "red" }}
-                  onClick={this.onDeleteClick.bind(contact.id, dispatch)}
+                  onClick={this.onDeleteClick.bind(this, contact.id, dispatch)}
                 />
               </h4>
               {showContactInfo ? (
